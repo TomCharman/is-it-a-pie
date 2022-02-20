@@ -1,0 +1,23 @@
+.card {
+  width: calc(33% - 48px);
+  float: left;
+  height: 200px;
+  margin: 24px 24px 0 0;
+  padding: 0 12px;
+  background-color: #777;
+  cursor: pointer;
+  background-size: cover;
+  font-weight: 600;
+  font-size: 30px;
+  color: white;
+  text-shadow: 0 0 3px black;
+  border: none;
+
+  &.bad {
+    background-color: red;
+  }
+
+  &.good {
+    background-color: green;
+  }
+}
