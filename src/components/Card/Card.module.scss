@@ -1,23 +1,65 @@
-.card {
+.flip {
   width: calc(33% - 48px);
-  float: left;
   height: 200px;
   margin: 24px 24px 0 0;
   padding: 0 12px;
-  background-color: #777;
-  cursor: pointer;
-  background-size: cover;
-  font-weight: 600;
-  font-size: 30px;
-  color: white;
-  text-shadow: 0 0 3px black;
-  border: none;
+  perspective: 1000px;
+  float: left;
+  
+  .flipInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
 
-  &.bad {
-    background-color: red;
+    .card, .cardBack {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+
+      font-weight: 600;
+      font-size: 30px;
+      color: white;
+      text-shadow: 0 0 3px black;
+      padding: 6px;
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .card {
+      background-color: #777;
+      cursor: pointer;
+      background-size: cover;
+      border: none;
+      display: block;
+    }
+
+    .cardBack {
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      &.bad {
+        background-color: red;
+      }
+
+      &.good {
+        background-color: green;
+      }
+    }
   }
 
-  &.good {
-    background-color: green;
+  &.revealed .flipInner {
+    transform: rotateY(180deg)
   }
 }
+
+
