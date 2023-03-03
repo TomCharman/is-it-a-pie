@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import useQuestions from 'hooks/useQuestions';
 import Card from 'components/Card/Card';
+import Row from 'components/Row';
 import styles from './Round.module.scss';
 
 function Round() {
@@ -15,42 +16,48 @@ function Round() {
 
   return (
     <div>
-      <div className={styles.navigation}>
-        <Button
-          variant="outline-secondary"
-          onClick={() => navigate(`/round/${number - 1}`)}
-          disabled={number === 1}
-        >
-          Last Round
+      <div className={styles.top}>
+        <h1>
+          Round
+          {' '}
+          {number}
+          :
+          {' '}
+          {round?.roundName}
+        </h1>
 
-        </Button>
-        <Button
-          variant="outline-secondary"
-          onClick={() => navigate(`/round/${number + 1}`)}
-          disabled={number >= totalRounds}
-        >
-          Next Round
-
-        </Button>
+        <div className={styles.navigation}>
+          <Button
+            variant="outline-secondary"
+            onClick={() => navigate(`/round/${number - 1}`)}
+            disabled={number === 1}
+          >
+            Last
+          </Button>
+          <Button
+            variant="outline-secondary"
+            onClick={() => navigate(`/round/${number + 1}`)}
+            disabled={number >= totalRounds}
+          >
+            Next
+          </Button>
+        </div>
       </div>
-      <h1>
-        Round
-        {' '}
-        {number}
-        :
-        {' '}
-        {round?.roundName}
-      </h1>
-      {round?.items.map((q) => (
-        <Card
-          key={q.description}
-          onSelect={() => selectItem(q.id)}
-          usesImages={round?.usesImages}
-          revealed={q.selected}
-          description={q.description}
-          isIt={q.isIt}
-        />
-      ))}
+      <div className="container-fluid">
+        <Row>
+          {round?.items.map((q) => (
+            <Card
+              key={q.description}
+              className="col-md-4 col-sm-6 col-xs-12"
+              onSelect={() => selectItem(q.id)}
+              usesImages={round?.usesImages}
+              revealed={q.selected}
+              description={q.description}
+              isIt={q.isIt}
+            />
+          ))}
+        </Row>
+      </div>
     </div>
   );
 }

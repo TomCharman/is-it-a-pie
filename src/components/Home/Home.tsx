@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styles from './Home.module.scss';
 
 function Home() {
   return (
-    <Link to="/round/1">Let us begin</Link>
+    <Link className={styles.invite} to="/round/1">Let us begin</Link>
   );
 }
 

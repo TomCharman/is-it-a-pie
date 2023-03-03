@@ -2,23 +2,17 @@ import React, { ReactNode } from 'react';
 
 interface ColumnProps {
   children?: ReactNode,
-  classes?: string,
-  width?: number,
-  widthClass?: string | null,
+  classes?: string[],
 }
 
 function Column({
-  widthClass = null,
-  classes = '',
+  classes = [],
   children = null,
-  width = 1,
 }: ColumnProps) {
-  const className = widthClass
-    ? `col-${widthClass} ${classes}`
-    : `col ${classes}`;
+  const className = classes.map((c) => `col-${c}`).join(' ');
 
   return (
-    <div className={className} style={{ flex: width }}>
+    <div className={className}>
       {children}
     </div>
   );
@@ -26,9 +20,7 @@ function Column({
 
 Column.defaultProps = {
   children: null,
-  classes: '',
-  width: 1,
-  widthClass: null,
+  classes: [],
 } as Partial<ColumnProps>;
 
 export default Column;

@@ -10,27 +10,22 @@ import Home from 'components/Home/Home';
 function App() {
   return (
     <Row>
-      <Column>
+      <Column classes={['lg-3', 'md-12', 'sm-12']}>
         <Title>
           Is
-          <br />
-          It
-          <br />
+          it
           a
-          <br />
           Pie?
         </Title>
       </Column>
-      <Column width={4}>
+      <Column classes={['lg-9', 'md-12', 'sm-12']}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="round/:round" element={<Round />} />
 
         </Routes>
       </Column>
-
     </Row>
-
   );
 }
 

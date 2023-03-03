@@ -4,6 +4,7 @@ import Markdown from 'react-markdown';
 import styles from './Card.module.scss';
 
 type CardTypes = {
+  className: string,
   description: string,
   isIt: boolean,
   revealed: boolean,
@@ -12,6 +13,7 @@ type CardTypes = {
 }
 
 function Card({
+  className,
   description,
   isIt,
   revealed,
@@ -27,7 +29,12 @@ function Card({
   const revealClass = isIt ? styles.good : styles.bad;
 
   return (
-    <div className={classNames(styles.flip, { [styles.revealed]: revealed })}>
+    <div className={classNames(
+      styles.flip,
+      { [styles.revealed]: revealed },
+      className,
+    )}
+    >
       <div className={styles.flipInner}>
         <button
           type="button"
