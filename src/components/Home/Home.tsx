@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import useQuestions from 'hooks/useQuestions';
 import styles from './Home.module.scss';
