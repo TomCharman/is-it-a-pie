@@ -22,7 +22,7 @@ function Card({
 }: CardTypes) {
   const middle = <Markdown>{description}</Markdown>;
 
-  const styleProperty : React.CSSProperties = usesImages
+  const styleProperty: React.CSSProperties = usesImages
     ? { backgroundImage: `url('/images/${description.replace(/ |'/g, '_')}.jpg')` }
     : {};
 

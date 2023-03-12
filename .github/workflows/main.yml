@@ -19,6 +19,7 @@ concurrency:
 jobs:
   # Build job
   build:
+    name: Build and deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,7 +36,7 @@ jobs:
         with:
           host: thegreatescapism.com
           username: github
-          source: /home/runner/work/letters/letters/public/*
+          source: /home/runner/work/is-it-a-pie/is-it-a-pie/build/*
           target: /var/www/is-it-a-pie/root
           tar_tmp_path: /home/github/temp
           strip_components: 3
