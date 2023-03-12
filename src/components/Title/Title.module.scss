@@ -8,6 +8,13 @@
   line-height: 1.2;
   font-style: italic;
   text-align: center;
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    text-decoration: underline;
+    color: black;
+  }
 }
 
 @include media-breakpoint-up(lg) {

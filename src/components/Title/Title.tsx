@@ -7,9 +7,9 @@ type TitleProps = {
 
 function Title({ children }: TitleProps) {
   return (
-    <div className={styles.base}>
+    <a href="/" className={styles.base}>
       {children}
-    </div>
+    </a>
   );
 }
 
