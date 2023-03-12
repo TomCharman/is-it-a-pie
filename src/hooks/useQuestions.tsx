@@ -25,7 +25,7 @@ type Action =
  | { type: 'load', results: RoundType[] }
  | { type: 'selectItem', itemId: number }
 
-function useQuestions(roundId: string | undefined) : UseQuestionsReturnType {
+function useQuestions(roundId?: string) : UseQuestionsReturnType {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
   function reducer(state: RoundType[], action: Action): RoundType[] {
