@@ -1,0 +1,41 @@
+{
+  "roundName": "Is it an Android Phone (or condom)?",
+  "items": [
+    {
+      "description": "Electrify",
+      "isIt": true
+    },
+    {
+      "description": "Tingle",
+      "isIt": false
+    },
+    {
+      "description": "Admire",
+      "isIt": true
+    },
+    {
+      "description": "Fascinate",
+      "isIt": true
+    },
+    {
+      "description": "Elite",
+      "isIt": false
+    },
+    {
+      "description": "Transform Ultra",
+      "isIt": true
+    },
+    {
+      "description": "Cruise Control",
+      "isIt": false
+    },
+    {
+      "description": "Rumor Touch",
+      "isIt": false
+    },
+    {
+      "description": "Hero",
+      "isIt": true
+    }
+  ]
+}

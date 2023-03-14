@@ -1,5 +1,8 @@
-import { useReducer, useEffect, useState } from 'react';
-import { fetchQuestions } from 'utils/api';
+import { useReducer } from 'react';
+import { useQuery } from 'react-query';
+import {
+  getConfig, getRound,
+} from 'utils/api';
 
 type ItemType = {
   description: string,
@@ -21,57 +24,58 @@ type UseQuestionsReturnType = {
   selectItem: Function,
 }
 
+type Config = {
+  numberOfRounds: number,
+}
+
+type Selections = Record<number, Set<number>>
+const initialSelections: Selections = {};
+
 type Action =
- | { type: 'load', results: RoundType[] }
  | { type: 'selectItem', itemId: number }
 
-function useQuestions(roundId?: string) : UseQuestionsReturnType {
-  const [isLoaded, setIsLoaded] = useState<boolean>(false);
+function useQuestions(roundId?: number) : UseQuestionsReturnType {
+  const {
+    data: config,
+    isSuccess: isConfigSuccess,
+  } = useQuery<Config>({
+    queryKey: ['config'],
+    queryFn: getConfig,
+  });
 
-  function reducer(state: RoundType[], action: Action): RoundType[] {
+  const { data: roundData } = useQuery<RoundType>({
+    queryKey: ['round', `${roundId}`],
+    queryFn: () => getRound(roundId!),
+    enabled: !!roundId && isConfigSuccess,
+  });
+
+  function reducer(state: Selections, action: Action): Selections {
+    // eslint-disable-next-line no-console
+    console.log(`ACTION: ${action.type}`, state, action);
+
     switch (action.type) {
-      case 'load':
-        return action.results;
-      case 'selectItem':
-        return state.map((r) => ({
-          ...r,
-          items: (roundId && r.id === +roundId - 1) ? r.items.map((i) => ({
-            ...i,
-            selected: i.id === action.itemId ? true : i.selected,
-          })) : r.items,
-        }));
+      case 'selectItem': {
+        if (!roundId) return state;
+
+        const newSet = state[roundId] ? new Set<number>(state[roundId]) : new Set<number>();
+
+        if (newSet.has(action.itemId)) {
+          newSet.delete(action.itemId);
+        } else {
+          newSet.add(action.itemId);
+        }
+
+        return {
+          ...state,
+          [roundId]: newSet,
+        };
+      }
       default:
-        return [];
+        return state;
     }
   }
 
-  const [questions, dispatch] = useReducer(reducer, []);
-
-  useEffect(() => {
-    if (!isLoaded) {
-      fetchQuestions()
-        .then((response) => response.json())
-        .then((data: RoundType[]) => {
-          const processedQuestions = data.map((r, roundIndex) => ({
-            ...r,
-            id: roundIndex,
-            items: r.items.map((item, index) => ({
-              ...item,
-              selected: false,
-              id: index,
-            })),
-          }));
-
-          setIsLoaded(true);
-          dispatch({
-            type: 'load',
-            results: processedQuestions,
-          });
-        });
-    }
-  }, [isLoaded]);
-
-  const round: RoundType | null = (roundId && questions) ? questions[+roundId - 1] : null;
+  const [selections, dispatch] = useReducer(reducer, initialSelections);
 
   const selectItem = (itemId: number) => {
     dispatch({
@@ -80,9 +84,17 @@ function useQuestions(roundId?: string) : UseQuestionsReturnType {
     });
   };
 
+  const round: RoundType | undefined = roundData && roundId ? {
+    ...roundData,
+    items: roundData?.items.map((item, index) => ({
+      ...item,
+      selected: selections[roundId] && selections[roundId].has(index),
+    })),
+  } : undefined;
+
   return {
     round,
-    totalRounds: questions.length,
+    totalRounds: config?.numberOfRounds ?? 0,
     selectItem,
   };
 }

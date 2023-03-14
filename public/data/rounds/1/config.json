@@ -1,0 +1,42 @@
+{
+  "roundName": "Is it a Pie?",
+  "usesImages": true,
+  "items": [
+    {
+      "description": "Fish pie",
+      "isIt": false
+    },
+    {
+      "description": "Quiche",
+      "isIt": false
+    },
+    {
+      "description": "Pizza",
+      "isIt": false
+    },
+    {
+      "description": "Cherry pie",
+      "isIt": true
+    },
+    {
+      "description": "Chess pie",
+      "isIt": false
+    },
+    {
+      "description": "Mince pie",
+      "isIt": true
+    },
+    {
+      "description": "Pecan pie",
+      "isIt": true
+    },
+    {
+      "description": "Pasty",
+      "isIt": false
+    },
+    {
+      "description": "Pumpkin pie",
+      "isIt": false
+    }
+  ]
+}

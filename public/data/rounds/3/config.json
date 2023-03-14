@@ -1,0 +1,41 @@
+{
+  "roundName": "Is it Ironic?",
+  "items": [
+    {
+      "description": "Rain on your wedding day",
+      "isIt": false
+    },
+    {
+      "description": "A free ride when you've already paid",
+      "isIt": true
+    },
+    {
+      "description": "Good advice that you just didn't take",
+      "isIt": false
+    },
+    {
+      "description": "Death row pardon 2 minutes too late",
+      "isIt": false
+    },
+    {
+      "description": "Black fly in your chardonnay",
+      "isIt": false
+    },
+    {
+      "description": "Ten thousand spoons when all you need is a knife",
+      "isIt": true
+    },
+    {
+      "description": "A traffic jam when you’re already late",
+      "isIt": false
+    },
+    {
+      "description": "A no-smoking sign on your cigarette break",
+      "isIt": false
+    },
+    {
+      "description": "Alanis Morissette is very good at identifying irony",
+      "isIt": true
+    }
+  ]
+}

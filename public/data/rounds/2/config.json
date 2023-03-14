@@ -1,0 +1,42 @@
+{
+  "roundName": "Is it a Robot?",
+  "usesImages": true,
+  "items": [
+    {
+      "description": "Roomba",
+      "isIt": true
+    },
+    {
+      "description": "C-3PO",
+      "isIt": true
+    },
+    {
+      "description": "The Robot (the dance)",
+      "isIt": false
+    },
+    {
+      "description": "Darth Vader",
+      "isIt": false
+    },
+    {
+      "description": "Telepresence robot",
+      "isIt": false
+    },
+    {
+      "description": "Pinnochio",
+      "isIt": false
+    },
+    {
+      "description": "The Cars in _Cars_",
+      "isIt": false
+    },
+    {
+      "description": "Replicants",
+      "isIt": true
+    },
+    {
+      "description": "Chatbots",
+      "isIt": false
+    }
+  ]
+}
