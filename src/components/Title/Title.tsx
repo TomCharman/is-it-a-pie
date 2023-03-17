@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import styles from './Title.module.scss';
 
 type TitleProps = {
@@ -7,9 +7,9 @@ type TitleProps = {
 
 function Title({ children }: TitleProps) {
   return (
-    <div className={styles.base}>
+    <a href="/" className={styles.base}>
       {children}
-    </div>
+    </a>
   );
 }
 

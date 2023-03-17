@@ -1,4 +1,3 @@
-import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import useQuestions from 'hooks/useQuestions';
@@ -9,7 +8,7 @@ import styles from './Round.module.scss';
 function Round() {
   const { round: roundId } = useParams();
 
-  const { round, totalRounds, selectItem } = useQuestions(roundId);
+  const { round, totalRounds, selectItem } = useQuestions(Number(roundId));
   const navigate = useNavigate();
 
   const number = roundId ? +roundId : 0;
@@ -32,7 +31,7 @@ function Round() {
             onClick={() => navigate(`/round/${number - 1}`)}
             disabled={number === 1}
           >
-            Last
+            Previous
           </Button>
           <Button
             variant="outline-secondary"
@@ -45,15 +44,15 @@ function Round() {
       </div>
       <div className="container-fluid">
         <Row>
-          {round?.items.map((q) => (
+          {round?.items.map((item, index) => (
             <Card
-              key={q.description}
+              key={item.description}
               className="col-md-4 col-sm-6 col-xs-12"
-              onSelect={() => selectItem(q.id)}
+              onSelect={() => selectItem(index)}
               usesImages={round?.usesImages}
-              revealed={q.selected}
-              description={q.description}
-              isIt={q.isIt}
+              revealed={item.selected}
+              description={item.description}
+              isIt={item.isIt}
             />
           ))}
         </Row>

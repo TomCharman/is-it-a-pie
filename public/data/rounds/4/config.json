@@ -1,0 +1,42 @@
+{
+  "roundName": "Is it a Sport?",
+  "usesImages": true,
+  "items": [
+    {
+      "description": "Soccer",
+      "isIt": true
+    },
+    {
+      "description": "Chess",
+      "isIt": false
+    },
+    {
+      "description": "Cock-fighting",
+      "isIt": false
+    },
+    {
+      "description": "eSports",
+      "isIt": false
+    },
+    {
+      "description": "Competitive eating",
+      "isIt": true
+    },
+    {
+      "description": "Bowling",
+      "isIt": true
+    },
+    {
+      "description": "Poker",
+      "isIt": false
+    },
+    {
+      "description": "Hunting",
+      "isIt": false
+    },
+    {
+      "description": "Professional wrestling",
+      "isIt": false
+    }
+  ]
+}

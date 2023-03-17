@@ -1,4 +1,4 @@
-import React from 'react';
+import { MouseEventHandler, CSSProperties } from 'react';
 import classNames from 'classnames';
 import Markdown from 'react-markdown';
 import styles from './Card.module.scss';
@@ -8,7 +8,7 @@ type CardTypes = {
   description: string,
   isIt: boolean,
   revealed: boolean,
-  onSelect: React.MouseEventHandler<HTMLButtonElement>,
+  onSelect: MouseEventHandler<HTMLButtonElement>,
   usesImages: boolean,
 }
 
@@ -22,7 +22,7 @@ function Card({
 }: CardTypes) {
   const middle = <Markdown>{description}</Markdown>;
 
-  const styleProperty : React.CSSProperties = usesImages
+  const styleProperty: CSSProperties = usesImages
     ? { backgroundImage: `url('/images/${description.replace(/ |'/g, '_')}.jpg')` }
     : {};
 

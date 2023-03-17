@@ -1,0 +1,22 @@
+{
+  "roundName": "Is it Butter?",
+  "usesImages": true,
+  "items": [
+    {
+      "description": "Buttersoft",
+      "isIt": true
+    },
+    {
+      "description": "Butter",
+      "isIt": true
+    },
+    {
+      "description": "I can't believe it's not Butter",
+      "isIt": false
+    },
+    {
+      "description": "Western Star Spreadable Original Soft",
+      "isIt": false
+    }
+  ]
+}
