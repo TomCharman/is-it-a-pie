@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import useQuestions from 'hooks/useQuestions';
+import Row from 'components/Row';
+import clsx from 'clsx';
 import styles from './Home.module.scss';
 
 function Home() {
@@ -9,8 +11,12 @@ function Home() {
 
   return (
     <>
-      <Link className={styles.invite} to="/round/1">Start from the beginning</Link>
-      <Link className={styles.invite} to={`/round/${randomRound}`}>I’m feeling lucky</Link>
+      <Row>
+        <Link className={clsx(styles.invite, 'col-md-6 offset-md-3')} to="/round/1">Start from the beginning</Link>
+      </Row>
+      <Row>
+        <Link className={clsx(styles.invite, 'col-md-6 offset-md-3')} to={`/round/${randomRound}`}>I’m feeling lucky</Link>
+      </Row>
     </>
   );
 }

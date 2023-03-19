@@ -1,5 +1,5 @@
+import clsx from 'clsx';
 import { MouseEventHandler, CSSProperties } from 'react';
-import classNames from 'classnames';
 import Markdown from 'react-markdown';
 import styles from './Card.module.scss';
 
@@ -29,7 +29,7 @@ function Card({
   const revealClass = isIt ? styles.good : styles.bad;
 
   return (
-    <div className={classNames(
+    <div className={clsx(
       styles.flip,
       { [styles.revealed]: revealed },
       className,
@@ -44,7 +44,7 @@ function Card({
         >
           {middle}
         </button>
-        <div className={classNames(styles.cardBack, revealClass)}>
+        <div className={clsx(styles.cardBack, revealClass)}>
           {middle}
         </div>
       </div>

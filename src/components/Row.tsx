@@ -1,23 +1,17 @@
+import clsx from 'clsx';
 import { ReactNode } from 'react';
 
 interface RowProps {
   children?: ReactNode,
-  classes?: string | null,
+  className?: string,
 }
 
-function Row({ children = null, classes = null }: RowProps) {
-  const className = `row ${classes}`;
-
+function Row({ children = null, className = undefined }: RowProps) {
   return (
-    <div className={className}>
+    <div className={clsx('row', className)}>
       {children}
     </div>
   );
 }
-
-Row.defaultProps = {
-  children: null,
-  classes: '',
-};
 
 export default Row;
