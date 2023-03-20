@@ -18,9 +18,4 @@ function Column({
   );
 }
 
-Column.defaultProps = {
-  children: null,
-  classes: [],
-} as Partial<ColumnProps>;
-
 export default Column;

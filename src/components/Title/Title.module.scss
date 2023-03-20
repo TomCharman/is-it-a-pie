@@ -4,22 +4,21 @@
 
 .base {
   font-size: 76px;
-  font-weight: 300;
-  line-height: 1.2;
-  font-style: italic;
+  font-weight: 400;
+  line-height: 76px;
   text-align: center;
-  text-decoration: none;
-  color: black;
+  font-family: 'Luckiest Guy', cursive;
+  margin: 10px 0;
 
-  &:hover {
-    text-decoration: underline;
-    color: black;
-  }
-}
+  .link {
+    text-decoration: none;
+    color: purple;
+    border-radius: 10px;
+    padding: 23px 20px 0px;
 
-@include media-breakpoint-up(lg) {
-  .base {
-    text-align: left;
-    word-spacing: 99999999px;
+    &:hover {
+      color: white;
+      background-color: purple;
+    }
   }
 }

@@ -1,10 +1,45 @@
+.base {
+    margin-top: 20px;
+}
+
 .invite {
     text-align: center;
     font-size: 3.6rem;
     display: block;
     padding: 4.8rem;
-}
+    color: white;
+    background-color: rgb(151, 122, 151);
+    text-shadow: 0 0 3px black;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    position: relative;
 
-.invite+.invite {
-    padding-top: 0;
+    &::after {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        content: '';
+        height: 100%;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 10px;
+        position: absolute;
+        z-index: -1;
+    }
+
+    &:hover {
+        color: white;
+
+        &::after {
+            opacity: 1;
+        }
+    }
+
+    &:hover::after {
+        opacity: 1;
+    }
 }
