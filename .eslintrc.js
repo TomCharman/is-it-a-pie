@@ -27,5 +27,6 @@ module.exports = {
     'import/extensions': 'off',
     'no-unused-vars': 'warn',
     'react/require-default-props': 'off',
+    'import/prefer-default-export': 'off',
   },
 };

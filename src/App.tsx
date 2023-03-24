@@ -6,6 +6,7 @@ import Round from 'components/Round';
 import Home from 'components/Home/Home';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import styles from './App.module.scss';
+import 'styles/globalTheme.css';
 
 function App() {
   const queryClient = new QueryClient({
