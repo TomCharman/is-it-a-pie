@@ -1,4 +1,4 @@
-import { createGlobalTheme } from '@vanilla-extract/css';
+import { createGlobalTheme, globalStyle } from '@vanilla-extract/css';
 
 export const theme = createGlobalTheme(':root', {
   color: {
@@ -7,6 +7,14 @@ export const theme = createGlobalTheme(':root', {
   },
   font: {
     heading: "'Luckiest Guy', sans-serif",
-    body: '"Merriweather Sans", sans-serif',
+    body: "'Merriweather Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
   },
+  layout: {
+    gridGutterWidth: '1.5rem',
+  },
+});
+
+globalStyle('body', {
+  fontFamily: `${theme.font.body} !important`,
+  margin: '20px 30px !important',
 });

@@ -5,8 +5,6 @@ import Title from 'components/Title/Title';
 import Round from 'components/Round';
 import Home from 'components/Home/Home';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import styles from './App.module.scss';
-import 'styles/globalTheme.css';
 
 function App() {
   const queryClient = new QueryClient({
@@ -19,7 +17,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Row className={styles.app}>
+      <Row>
         <Column classes={['md-12']}>
           <Title>
             Is

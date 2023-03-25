@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import useQuestions from 'hooks/useQuestions';
 import Row from 'components/Row';
 import clsx from 'clsx';
-import styles from './Home.module.scss';
+import { styles } from './Home.css';
 
 function Home() {
   const { totalRounds } = useQuestions();
