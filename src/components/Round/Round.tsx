@@ -27,16 +27,18 @@ function Round() {
 
         <div className={styles.navigation}>
           <Button
-            variant="outline-secondary"
-            onClick={() => navigate(`/round/${number - 1}`)}
+            className={styles.button}
             disabled={number === 1}
+            onClick={() => navigate(`/round/${number - 1}`)}
+            variant="outline-secondary"
           >
             Previous
           </Button>
           <Button
-            variant="outline-secondary"
-            onClick={() => navigate(`/round/${number + 1}`)}
+            className={styles.button}
             disabled={number >= totalRounds}
+            onClick={() => navigate(`/round/${number + 1}`)}
+            variant="outline-secondary"
           >
             Next
           </Button>
