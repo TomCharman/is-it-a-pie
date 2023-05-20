@@ -36,6 +36,7 @@ function Card({
     )}
     >
       <div className={styles.flipInner}>
+			{isIt}
         <button
           type="button"
           className={styles.card}
