@@ -70,10 +70,10 @@ const cardBack = recipe({
   variants: {
     isIt: {
       true: {
-        backgroundColor: 'red',
+        backgroundColor: 'green',
       },
       false: {
-        backgroundColor: 'green',
+        backgroundColor: 'red',
       },
     },
   },
