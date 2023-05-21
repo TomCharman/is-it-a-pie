@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import useQuestions from 'hooks/useQuestions';
 import Card from 'components/Card/Card';
 import Row from 'components/Row';
-import styles from './Round.module.scss';
+import { styles } from './Round.css';
 
 function Round() {
   const { round: roundId } = useParams();
@@ -16,7 +16,7 @@ function Round() {
   return (
     <div>
       <div className={styles.top}>
-        <h1>
+        <h1 className={styles.title}>
           Round
           {' '}
           {number}
@@ -27,16 +27,18 @@ function Round() {
 
         <div className={styles.navigation}>
           <Button
-            variant="outline-secondary"
-            onClick={() => navigate(`/round/${number - 1}`)}
+            className={styles.button}
             disabled={number === 1}
+            onClick={() => navigate(`/round/${number - 1}`)}
+            variant="outline-secondary"
           >
             Previous
           </Button>
           <Button
-            variant="outline-secondary"
-            onClick={() => navigate(`/round/${number + 1}`)}
+            className={styles.button}
             disabled={number >= totalRounds}
+            onClick={() => navigate(`/round/${number + 1}`)}
+            variant="outline-secondary"
           >
             Next
           </Button>

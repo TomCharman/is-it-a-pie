@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import styles from './Title.module.scss';
+import { styles } from './Title.css';
 
 type TitleProps = {
   children: ReactNode,
