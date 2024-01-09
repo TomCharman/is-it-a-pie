@@ -12,7 +12,7 @@
     },
     {
       "description": "Pizza",
-      "isIt": false
+      "isIt": true
     },
     {
       "description": "Cherry pie",
